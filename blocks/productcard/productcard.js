@@ -43,7 +43,7 @@ async function createList(jsonURL, val) {
       (item) => item.CategoryID === categoryParam && item.ProductID === productParam,
     );
     window.checkoutProductData = {
-      productValue: parseInt(filteredData[0].ProductID.split('_')[1]),
+      productValue: parseInt(filteredData[0].ProductID.split('_')[1], 10),
       productName: filteredData[0].ProductName,
       productPrice: filteredData[0].ProductPrice,
       categoryValue: filteredData[0].CategoryID.split('_')[1],

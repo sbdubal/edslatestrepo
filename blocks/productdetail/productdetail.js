@@ -42,23 +42,7 @@ async function createList(jsonURL, val) {
   const productDeailsContainer = document.createElement('div');
   productDeailsContainer.classList.add('productDetails_container');
   createListItem(productDeailsContainer, filteredData);
-  const product = productJSON.data.find(
-    (item) => item.CategoryID === categoryParam && item.ProductID === productParam,
-  );
 
-  product
-    && (window.digitalData = {
-      pageName: 'Productpage',
-      product: {
-        productName: product.ProductName,
-        productPrice: product.ProductPrice,
-        productValue: parseInt(product.ProductID.split('_')[1]),
-      },
-      category: {
-        categoryValue: product.CategoryID.split('_')[1],
-      },
-      pageURL: window.location.href,
-    });
   return productDeailsContainer;
 }
 
@@ -75,22 +59,3 @@ export default async function decorate(block) {
     products.replaceWith(parentDiv);
   }
 }
-
-// <ul data-aue-resource="urn:aemconnection:/content/example/list" data-aue-type="container">
-//       <li data-aue-resource="urn:aemconnection/content/example/listitem" data-aue-type="component">
-//         <p data-aue-prop="name" data-aue-type="text">Jane Doe</p>
-//         <p data-aue-prop="title" data-aue-type="text">Journalist</p>
-//         <img data-aue-prop="avatar" src="https://www.adobe.com/content/dam/cc/icons/Adobe_Corporate_Horizontal_Red_HEX.svg" data-aue-type="image" alt="avatar"/>
-//       </li>
-
-//       <li data-aue-resource="urn:fcsconnection:/documents/mytext" data-aue-type="component">
-//         <p data-aue-prop="name" data-aue-type="text">John Smith</p>
-//         <p data-aue-resource="urn:aemconnection/content/example/another-source" data-aue-prop="title" data-aue-type="text">Photographer</p>
-//         <img data-aue-prop="avatar" src="https://www.adobe.com/content/dam/cc/icons/Adobe_Corporate_Horizontal_Red_HEX.svg" data-aue-type="image" alt="avatar"/>
-//       </li>
-//     </ul>
-
-//     <div data-aue-resource="urn:aemconnection:/content/dam/ddxadobehackathon2024/item1" data-aue-type="component">
-//   <p data-aue-prop="fullName" data-aue-type="textField">Jane Doe</p>
-//         <p data-aue-prop="profession" data-aue-type="textField">Journalist</p>
-//     </div>
