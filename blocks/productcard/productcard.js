@@ -83,7 +83,7 @@ async function createList(jsonURL, val) {
 export default async function decorate(block) {
   const products = block.querySelector('a[href$=".json"]');
   const parentDiv = document.createElement('div');
-  parentDiv.classList.add('productCards');
+  parentDiv.classList.add('product-cards');
   if (products) {
     parentDiv.append(await createList(products.href, null));
     products.replaceWith(parentDiv);
