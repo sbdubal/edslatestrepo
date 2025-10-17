@@ -37,27 +37,25 @@ async function createList(jsonURL, val) {
   const productParam = urlParams.has('product') && urlParams.get('product');
   const categoryParam = urlParams.has('category') && urlParams.get('category');
   const filteredData = productJSON.data.filter(
-    (item) =>
-      item.CategoryID === categoryParam && item.ProductID === productParam
+    (item) => item.CategoryID === categoryParam && item.ProductID === productParam,
   );
   const productDeailsContainer = document.createElement('div');
   productDeailsContainer.classList.add('productDetails_container');
   createListItem(productDeailsContainer, filteredData);
   const product = productJSON.data.find(
-    (item) =>
-      item.CategoryID === categoryParam && item.ProductID === productParam,
+    (item) => item.CategoryID === categoryParam && item.ProductID === productParam,
   );
-  
-  product &&
-    (window.digitalData = {
-      pageName: "Productpage",
-      product: {  
+
+  product
+    && (window.digitalData = {
+      pageName: 'Productpage',
+      product: {
         productName: product.ProductName,
         productPrice: product.ProductPrice,
-        productValue: parseInt(product.ProductID.split("_")[1]),
+        productValue: parseInt(product.ProductID.split('_')[1]),
       },
       category: {
-        categoryValue: product.CategoryID.split("_")[1],
+        categoryValue: product.CategoryID.split('_')[1],
       },
       pageURL: window.location.href,
     });
@@ -78,7 +76,6 @@ export default async function decorate(block) {
   }
 }
 
-
 // <ul data-aue-resource="urn:aemconnection:/content/example/list" data-aue-type="container">
 //       <li data-aue-resource="urn:aemconnection/content/example/listitem" data-aue-type="component">
 //         <p data-aue-prop="name" data-aue-type="text">Jane Doe</p>
@@ -93,7 +90,6 @@ export default async function decorate(block) {
 //       </li>
 //     </ul>
 
-    
 //     <div data-aue-resource="urn:aemconnection:/content/dam/ddxadobehackathon2024/item1" data-aue-type="component">
 //   <p data-aue-prop="fullName" data-aue-type="textField">Jane Doe</p>
 //         <p data-aue-prop="profession" data-aue-type="textField">Journalist</p>

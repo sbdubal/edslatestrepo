@@ -36,12 +36,12 @@ async function createList(jsonURL, val) {
   HeroContainer.classList.add('hero');
   createListItem(HeroContainer, filteredData);
 
-  filteredData &&
-    (window.digitalData = {
-      pageName: "Categorypage",
+  filteredData
+    && (window.digitalData = {
+      pageName: 'Categorypage',
       category: {
         categoryName: filteredData[0].CategoryName,
-        categoryValue: filteredData[0].CategoryID.split("_")[1]
+        categoryValue: filteredData[0].CategoryID.split('_')[1],
       },
       pageURL: window.location.href,
     });

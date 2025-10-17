@@ -50,7 +50,7 @@ async function createList(jsonURL, val) {
     };
 
     window.digitalData = {
-      pageName: "Checkoutpage",
+      pageName: 'Checkoutpage',
       product: {
         productName: window.checkoutProductData.productName,
         productPrice: window.checkoutProductData.productPrice,
