@@ -40,7 +40,7 @@ async function createList(jsonURL, val) {
     (item) => item.CategoryID === categoryParam && item.ProductID === productParam,
   );
   const productDeailsContainer = document.createElement('div');
-  productDeailsContainer.classList.add('productDetails-container');
+  productDeailsContainer.classList.add('product-details-container');
   createListItem(productDeailsContainer, filteredData);
 
   return productDeailsContainer;
